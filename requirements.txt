@@ -1,23 +1,10 @@
-# Requirements file for project dependencies
-
-# Basic utilities
-os
-
-# Regular expressions
-regex
-
-# Logging
-logging
-
-# Date and time manipulation
-datetime
-timedelta
+# Requirements file for deployment dependencies
 
 # Selenium WebDriver for browser automation
-selenium
+selenium>=3.141.0
 
 # BeautifulSoup for web scraping
-beautifulsoup4
+beautifulsoup4>=4.9.3
 
 # openpyxl for working with Excel files
-openpyxl
+openpyxl>=3.0.7
