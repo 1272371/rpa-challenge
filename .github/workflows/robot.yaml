@@ -1,19 +1,32 @@
-tasks:
-  Main Task:
-    command:
-      - python
-      - src/main.py
-    workDir: .
+name: Automation Deployment
 
-condaConfigFile: null
+on:
+  push:
+    branches:
+      - main  # Set the branch to trigger the workflow
 
-artifactsDir: output
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Use the latest version of Ubuntu as the runner
 
-ignoreFiles:
-  - .gitignore
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2  # Action to checkout the repository
 
-pythonDependencies:
-  - pip:
-      - -r requirements.txt
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # Specify Python version if needed
 
-environmentVariables: {}
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt  # Install dependencies from requirements.txt
+
+      - name: Install Robocorp CLI
+        run: |
+          pip install -U rpaframework
+          pip install -U robotframework-browser
+
+      - name: Execute Automation Script
+        run: |
+          rcc run --agent auto --workspace "Mrfresh" 
