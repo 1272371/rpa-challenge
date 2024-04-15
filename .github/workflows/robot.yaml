@@ -29,4 +29,5 @@ jobs:
 
       - name: Execute Automation Script
         run: |
-          rcc run --agent auto --workspace "Mrfresh" 
+          rcc run --agent auto --workspace "Mrfresh" --api-key ${{ secrets.ROBOCORP_API_KEY }}
+   

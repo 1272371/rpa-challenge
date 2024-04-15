@@ -68,7 +68,6 @@ pytz==2024.1
 pytz-deprecation-shim==0.1.0.post0
 pytzdata==2020.1
 PyYAML==6.0.1
-rcc==0.9.154
 referencing==0.34.0
 requests==2.31.0
 requests-file==2.0.0
