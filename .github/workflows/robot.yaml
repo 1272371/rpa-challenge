@@ -1,0 +1,19 @@
+tasks:
+  Main Task:
+    command:
+      - python
+      - src/main.py
+    workDir: .
+
+condaConfigFile: null
+
+artifactsDir: output
+
+ignoreFiles:
+  - .gitignore
+
+pythonDependencies:
+  - pip:
+      - -r requirements.txt
+
+environmentVariables: {}
