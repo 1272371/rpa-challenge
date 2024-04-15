@@ -18,16 +18,26 @@ jobs:
         with:
           python-version: '3.x'  # Specify Python version if needed
 
-      - name: Install Dependencies
+      - name: Install System Dependencies
         run: |
-          pip install -r requirements.txt  # Install dependencies from requirements.txt
+          sudo apt-get update
+          sudo apt-get install -y python3-dev  # Install Python development headers
+          sudo apt-get install -y build-essential  # Install build tools
+
+      - name: Install Python Dependencies
+        run: |
+          pip install -U pip  # Upgrade pip to the latest version
+          pip install -r requirements.txt  # Install project dependencies
 
       - name: Install Robocorp CLI
         run: |
           pip install -U rpaframework
           pip install -U robotframework-browser
 
+      - name: Install Pendulum
+        run: |
+          pip install pendulum
+
       - name: Execute Automation Script
         run: |
           rcc run --agent auto --workspace "Mrfresh" --api-key ${{ secrets.ROBOCORP_API_KEY }}
-   
