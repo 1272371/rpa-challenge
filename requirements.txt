@@ -1,10 +1,10 @@
 # Requirements file for deployment dependencies
 
 # Selenium WebDriver for browser automation
-selenium>=3.141.0
+selenium
 
 # BeautifulSoup for web scraping
-beautifulsoup4>=4.9.3
+beautifulsoup4
 
 # openpyxl for working with Excel files
-openpyxl>=3.0.7
+openpyxl
